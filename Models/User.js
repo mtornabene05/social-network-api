@@ -31,3 +31,12 @@ const UserSchema = new Schema (
         id: false
     }
 )
+
+//get total friend count
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+})
+
+const User = model('Users', UserSchema);
+
+module.exports = User
